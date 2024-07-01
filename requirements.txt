@@ -1,6 +1,5 @@
 Django>=3.0,<4.0
-requests=2.32.2
-Django>=3.0,<4.0
+requests==2.32.2
 gunicorn
 whitenoise
 dj-database-url
