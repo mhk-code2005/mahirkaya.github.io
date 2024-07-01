@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+{% block title %}Research{% endblock %}
+
+{% block content %}
+<div class="research-container" >
+    <h2 class = "bold-text" style="font-size: 1.8em;">Research Experience</h2>
+    <p style="font-size: 1.2em;">
+        I am currently involved with Dr. Mohit Tiwari's Spark research group and my research is about the utilization of <em> Reinforcement Learning </em> using AutoCat to generate algorithms to identify <em> eviction sets </em> for randomized caches of different configurations.        
+    </p>
+    <p style="font-size: 1.2em;">
+        In the past, I have also worked with the Henkelman Group to partition an <em>A100 GPU Node</em> for concurrent <em>VASP calculations</em> and implemented a VASP Force Field Machine Learning Algorithm. I also gathered data of <em>Bayesian and Root Mean Squared Error of Forces</em> for several different compound molecules.
+    </p>
+
+    <h3 class="bold-text">Research Notes</h3>
+    <ul class="research-notes">
+        <li><a href="https://docs.google.com/presentation/d/13-I27MkpaZv6nJSxLKRDaCgwbxWRKiPHhWaBkM-eMvs/edit#slide=id.p" target="_blank">Research Notes</a></li>
+    </ul>
+
+
+    <h3 class="bold-text">Read Papers</h3>
+    <div class="research-papers">
+        <a href="{% static 'papers/paper1.pdf' %}" target="_blank">
+            <img src="{% static 'images/pdf_icon.png' %}" alt="Paper 1">
+            <p>Paper 1</p>
+        </a>
+        <a href="{% static 'papers/paper2.pdf' %}" target="_blank">
+            <img src="{% static 'images/pdf_icon.png' %}" alt="Paper 2">
+            <p>Paper 2</p>
+        </a>
+        <a href="{% static 'papers/paper3.pdf' %}" target="_blank">
+            <img src="{% static 'images/pdf_icon.png' %}" alt="Paper 3">
+            <p>Paper 3</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

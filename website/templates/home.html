@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <img src="{% static 'profile/profile.jpeg' %}" alt="Picture" class="profile-pic">
+    <div class="profile-info">
+        <h2>Mahir Kaya</h2>
+        <p>
+            I am a Computer Science Undergraduate Student at UT Austin with a keen interest in artificial intelligence, and data science.    
+            I am also involved in research about utilizing Reinforcement Learning to find eviction sets.
+
+        </p>
+    </div>
+</div>
+
+<div class="image-links">
+    <a href="https://www.cs.utexas.edu" target="_blank" class="image-link">
+        <img src="{% static 'images/utcs.png' %}" alt="UTCS" class="image">
+    </a>
+    <a href="https://www.linkedin.com/in/mahir-kaya-349678219/" target="_blank" class="image-link">
+        <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="image">
+    </a>
+    <a href="https://github.com/mhk-code2005" target="_blank" class="image-link">
+        <img src="{% static 'images/github.png' %}" alt="GitHub" class="image">
+    </a>
+</div>
+
+{% endblock %}
+

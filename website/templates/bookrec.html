@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+{% block title %}Book Recommendations{% endblock %}
+
+{% block content %}
+<div class="bookrec-container">
+    <h2>Book Recommendations</h2>
+    <p>
+        Welcome to the book recommendation page. Enter a book title or keyword to find recommendations.
+    </p>
+
+    <div class="search-container">
+        <form method="GET" action="{% url 'bookrec' %}">
+            <input type="text" name="query" placeholder="Search for books..." required value="{{ query }}">
+            <input type="number" name="count" min="1" placeholder="Number of results" value="{{ count }}" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% if query %}
+        <h3 style="text-align: left;">Search Results for "{{ query }}"</h3>
+        {% if code == 0 %}
+            <p style="text-align: left; font-weight: bold" class="">Could not find your book. Could these be what you meant?</p>
+            <ul>
+                {% for suggestion in suggestions %}
+                    <li style="text-align: left;">{{ suggestion }}</li>
+                {% endfor %}
+            </ul>
+        {% elif code == 1 %}
+            <div class="books-container">
+                {% for book in books %}
+                    <div class="book">
+                        <h3>{{ book.title }}</h3>
+                        <p>Author: {{ book.author }}</p>
+                        <p>{{ book.description }}</p>
+                        <p>Rating: {{ book.rating }}</p>
+                        <p>Genres: {{ book.genres }}</p>
+                        <a href="{{ book.url }}" target="_blank">More Info</a>
+
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

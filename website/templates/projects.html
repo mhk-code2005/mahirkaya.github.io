@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<body>
+    <h1 style="font-size: 1.4em; text-align: center;">Projects</h1>
+    
+    <div class="project">
+        <div class="project-image">
+            <img src="{% static 'projects/forest.jpg' %} " alt="Project Image" class="image" style="border-radius: 0px; border: 5px solid;">
+        </div>
+        <div class="project-content">
+            <h2 class="project-name">Forest Simulation</h2>
+            <p class="project-description">This project simulates a forest environment where animals hunt each other, are hunted, reproduce, and drink to increase their odds of survival in a grid map using Python.
+            </p>
+            <a class="project-link" href="https://github.com/mhk-code2005/Forest_Simulation" target="blank">https://github.com/mhk-code2005/Forest_Simulation</a>
+        </div>
+    </div>
+    
+    <div class="project">
+        <div class="project-image">
+            <img src="{% static 'projects/SE_logo.png' %} " alt="Project Image" class="image" style="border-radius: 0px; border: 5px solid;">
+        </div>
+        <div class="project-content">
+            <h2 class="project-name">Systems Emulator</h2>
+            <p class="project-description">Developed a software emulation of a 5-stage CPU with simple two level memory hierarchy and integrated cache that can run the charm-v3 instruction subset of ARM Assembly code. Implemented multi-stage pipelines and LRU algorithm for evicting a cache line to increase performance as well as programmed an ALU (Arithmetic Logical Unit) which was integrated into the pipeline using C.</p>
+            <a class="project-link" href="https://github.com/CS429-SP2024/se-lab-mahir-ayman" target="blank">https://github.com/CS429-SP2024/se-lab-mahir-ayman</a>
+        </div>
+    </div>
+
+    <div class="project">
+        <div class="project-image">
+            <img src="{% static 'projects/minesweeper.png' %} " alt="Project Image" class="image" style="border-radius: 0px; border: 5px solid;">
+        </div>
+        <div class="project-content">
+            <h2 class="project-name">Minesweeper AI</h2>
+            <p class="project-description">Constructed a knowledge-based AI  agent able to take actions and make inferences based on a knowledge base consisting of previous moves to play Minesweeper game using Python.</p>
+            <a class="project-link" href="https://github.com/mhk-code2005/MINESWEEPER-AI" target="blank">https://github.com/mhk-code2005/MINESWEEPER-AI</a>
+        </div>
+    </div>
+
+    <div class="project">
+        <div class="project-image">
+            <img src="{% static 'projects/MM.png' %} " alt="Project Image" class="image" style="border-radius: 0px; border: 5px solid;">
+        </div>
+        <div class="project-content">
+            <h2 class="project-name">Memory Manager</h2>
+            <p class="project-description">Built and optimized a dynamic storage allocator for C programs that has up to 85% space utilization and an average throughout over 1400  by partitioning memory blocks gotten from the OS and sharing them with the user accordingly. The program semantics matches the standard malloc and free routines. </p>
+            <a class="project-link" href="https://github.com/CS429-SP2024/mm-lab-mhk-code2005" target="blank">https://github.com/CS429-SP2024/mm-lab-mhk-code2005</a>
+        </div>
+    </div>
+
+    <div class="project">
+        <div class="project-image">
+            <img src="{% static 'projects/huffman.png' %} " alt="Project Image" class="image" style="border-radius: 0px; border: 5px solid;">
+        </div>
+        <div class="project-content">
+            <h2 class="project-name">Huffman Compressor</h2>
+            <p class="project-description">Implemented the Huffman Coding Data Compression Algorithm to compress large files without any data loss using Object Oriented Programming techniques</p>
+            <a class="project-link" href="https://github.com/mhk-code2005/HuffmanCompressor" target="blank">https://github.com/mhk-code2005/HuffmanCompressor</a>
+        </div>
+    </div>
+
+    <div class="project">
+        <div class="project-image">
+            <img src="{% static 'projects/orbit.jpg' %} " alt="Project Image" class="image" style="border-radius: 0px; border: 5px solid;">
+        </div>
+        <div class="project-content">
+            <h2 class="project-name">Many Body Simulator</h2>
+            <p class="project-description">This project simulates the planet movement using laws of gravity and conversation of momentum. Any number of bodies can be constructed with different masses, velocities and coordinates and their movement can be tracked continuously in the plot with a vector showing the direction of their velocities </p>
+            <a class="project-link" href="https://github.com/mhk-code2005/Orbit_Simulation" target="blank">https://github.com/mhk-code2005/Orbit_Simulation</a>
+        </div>
+    </div>
+
+
+
+</body>
+
+{% endblock %}
+
+
