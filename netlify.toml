@@ -1,3 +1,7 @@
-[build]
-command = "python3 manage.py runserver" publish = "website/static"
-
+ [build] 
+     command = "python manage.py collectstatic --noinput" 
+     publish = "website/static"
+     
+[dev]
+  command = "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
+  port = 8000
