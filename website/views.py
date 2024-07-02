@@ -14,26 +14,7 @@ def resume(request):
 def projects(request):
     return render(request, 'projects.html')
 
-def bookrec(request):
-    query = request.GET.get('query')
-    context = {'query': query}
 
-    if query:
-        response = requests.get(f"http://172.17.0.2:6000/search?query={query}")
-        data = response.json()
-
-class Book:
-    def __init__(self, title, author, published_date, description, isbn, url):
-        self.title = title
-        self.author = author
-        self.published_date = published_date
-        self.description = description
-        self.isbn = isbn
-        self.url = url
-
-# views.py
-from django.shortcuts import render
-import requests
 
 class Book:
     def __init__(self, title, rating, url, description, author, genres):
@@ -50,7 +31,7 @@ def bookrec(request):
     context = {'query': query, 'count': count}
 
     if query:
-        url = 'http://127.0.0.1:6000/input'
+        url = 'http://0.0.0.0:6000/input'
         data = {'text': query, 'count': count}
         response = requests.post(url, json=data)
 
