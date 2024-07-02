@@ -31,12 +31,9 @@ def bookrec(request):
     context = {'query': query, 'count': count}
 
     if query:
-        try:
-            url = 'http://0.0.0.0:6000/input'
-            data = {'text': query, 'count': count}
-            response = requests.post(url, json=data)
-        except:
-            context.update({'error': 'Error connecting to server'})
+        url = 'http://0.0.0.0:6000/input'
+        data = {'text': query, 'count': count}
+        response = requests.post(url, json=data)
         if response.status_code == 200:
             result = response.json()['result']
             if result[1] == 0:
