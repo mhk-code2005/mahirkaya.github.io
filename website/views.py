@@ -31,9 +31,10 @@ def bookrec(request):
     context = {'query': query, 'count': count}
 
     if query:
-        url = 'http://10.204.218.18:6000'
+        url = 'https://bookrec-server.onrender.com/input'
         data = {'text': query, 'count': count}
         response = requests.post(url, json=data)
+        print(response)
         if response.status_code == 200:
             result = response.json()['result']
             if result[1] == 0:
