@@ -1,0 +1,16 @@
+Jun 28, 2024:
+    -Run server.py which will load the recommender system and wait for requests via flask
+    -The recommender system uses a couple of columns from the cvs file and uses K-Clustering
+    -If what the user typed in is not in the list, we use Levenshtein library to figure out likely titles 
+    -Contact the server via contact_server.py 
+
+Jun 29, 2024:
+    -Created a dockerfile and built an image using "docker build -t bookrec ."
+    -Built and run a docker container by using "docker run -p 8000:8000 bookrec" (Could not get the docker app to work)
+    -Contacted the docker server via a python script
+    -Fixed a couple bugs relating to searching and a couple book titles appearing more than once
+    -What is left is the front-end and deploying the docker container to AWS
+    
+Goals:
+    -Use a web application to formalize this
+    
