@@ -1,0 +1,198 @@
+/* Example CSS to style profile image and information */
+.profile-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-top: 50px;
+    margin-right: 20px; /* Adjust margin to create space */
+    margin-left: -100px; /* Adjust margin to move closer to the left */
+
+}
+
+.profile-info {
+    flex: 1; /* Allow the text to grow to fill the remaining space */
+
+}
+
+body {
+    background: linear-gradient(to right, #14c09e, #29cb5a);
+}
+
+/* Image links section */
+.image-links {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    margin-top: 40px; /* Adjust margin as needed */
+}
+
+.image-link {
+    margin: 0 20px; /* Adjust spacing between image links */
+}
+
+.image {
+    width: 200px; /* Set width for the images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make images circular */
+}
+
+
+/* styles.css */
+
+/* Custom styles for the navigation bar */
+.navbar {
+    background: linear-gradient(to right, rgb(13, 175, 140), #29cb5a); /* Background color for the navbar */
+
+}
+
+.navbar-brand {
+    font-size: 1rem; /* Adjust font size */
+    font-weight: bold; /* Make it bold */
+    color: #000000;
+}
+
+.navbar-nav .nav-link {
+    color: #242424; /* Color of the links */
+    font-size: 1rem; /* Adjust font size */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #cbbaba; /* Color of links on hover */
+}
+
+.research-container {
+    margin-left: -50px;
+    margin-top: 50px;
+}
+
+
+.research-notes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.research-notes li {
+    margin: 20px;
+}
+
+.research-papers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.research-papers a {
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+}
+
+.research-papers img {
+    width: 100px;
+    height: auto;
+}
+
+.research-papers p {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+/* Basic styles for project blocks */
+.project {
+    display: flex;
+    border: 4px solid #070000;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, rgb(218, 131, 131), #dd9972);
+}
+
+.project-image {
+    flex: 0 0 auto; /* Prevents the image from stretching */
+    padding: 20px; /* Adjust spacing as needed */
+}
+
+.project-image img {
+    max-width: 100%; /* Ensure images don't exceed their container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.project-content {
+    flex: 1; /* Allows the content to expand to fill remaining space */
+    padding: 20px; /* Adjust spacing as needed */
+}
+
+.project-name {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* styles.css */
+.search-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search-container input[type="text"], 
+.search-container input[type="number"] {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+.bookrec-container {
+    margin-top: 20px;
+    text-align: center;
+
+}
+
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+
+.book {
+    border: 4px solid #ccc;
+    padding: 20px;
+    border-radius: 6px;
+    width: 350px;
+    background: linear-gradient(to right, rgb(218, 131, 131), #dd9972);
+    text-align: left;
+}
