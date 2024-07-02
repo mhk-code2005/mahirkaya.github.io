@@ -29,4 +29,4 @@ def process_input(input_text):
     return f'Received input: {input_text}'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=6000)
