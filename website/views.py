@@ -1,5 +1,12 @@
 from django.shortcuts import render, HttpResponse
 import requests
+import os
+import cv2
+from .forms import VideoUploadForm
+from ultralytics import YOLO
+from django.conf import settings
+import numpy as np
+
 
 # Create your views here.
 def home(request):
@@ -13,8 +20,6 @@ def resume(request):
 
 def projects(request):
     return render(request, 'projects.html')
-
-
 
 class Book:
     def __init__(self, title, rating, url, description, author, genres):
@@ -54,3 +59,89 @@ def bookrec(request):
             context.update({'error': 'Error fetching data from server'})
 
     return render(request, 'bookrec.html', context)
+
+
+
+#Not finished
+# def handle_uploaded_file(f):
+#     file_path = os.path.join(settings.MEDIA_ROOT, f.name)
+#     with open(file_path, 'wb+') as destination:
+#         for chunk in f.chunks():
+#             destination.write(chunk)
+#     return file_path
+
+
+# def predict_and_draw_boxes_for_players(model, img):
+#     results = model.predict(img)  # Perform predictions with your YOLO model
+#     threshold = 0.5
+#     team_colors = [(255, 0, 0), (0, 255, 0)]  # Example team colors
+
+#     player_list = []
+#     overall_avg_pixel_value = 0
+#     player_count = 0
+
+#     for box in results[0].boxes:
+#         xmin, ymin, xmax, ymax = map(int, box.xyxy.flatten())
+#         object_type = int(box.cls)
+#         probability = float(box.conf)
+
+#         if probability > threshold:
+#             player_roi = img[ymin:ymax, xmin:xmax]
+#             avg_pixel_value = np.mean(np.mean(player_roi, axis=(0, 1)))
+
+#             player_list.append([avg_pixel_value, (xmin, ymin), (xmax, ymax)])
+#             overall_avg_pixel_value += avg_pixel_value
+#             if object_type == 2:  # Assuming '2' represents players
+#                 player_count += 1
+
+#     average_value_threshold = overall_avg_pixel_value / player_count if player_count > 0 else 0
+
+#     for avg_value, (xmin, ymin), (xmax, ymax) in player_list:
+#         team_color = team_colors[0] if avg_value > average_value_threshold else team_colors[1]
+#         cv2.rectangle(img, (xmin, ymin), (xmax, ymax), team_color, 1)
+#     return img
+
+
+
+# def process_video(video_path):
+#     # Open video file
+#     cap = cv2.VideoCapture(video_path)
+
+#     # Get video properties
+#     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+#     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+#     fps = int(cap.get(cv2.CAP_PROP_FPS))
+
+#     # Prepare output file path
+#     output_path = os.path.join(settings.MEDIA_ROOT, 'processed_video.mp4')
+#     out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
+
+#     # Process each frame and write to output video
+#     while True:
+#         ret, frame = cap.read()
+#         if not ret:
+#             break
+
+#         # Example: Convert frame to grayscale
+#         gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+#         # Write processed frame to output video
+#         out.write(gray_frame)
+
+#     # Release resources
+#     cap.release()
+#     out.release()
+
+#     # Return path to processed video
+#     return output_path
+
+# def soccer_video(request):
+#     if request.method == 'POST':
+#         form = VideoUploadForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             file_path = handle_uploaded_file(request.FILES['video'])
+#             processed_video_path = process_video(file_path)
+#             return render(request, 'video_upload_and_display.html', {'processed_video_path': processed_video_path})
+#     else:
+#         form = VideoUploadForm()
+#     return render(request, 'video_upload_and_display.html', {'form': form})

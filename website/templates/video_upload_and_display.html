@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+{% block title %}Soccer Detection{% endblock %}
+
+{% block content %}
+
+
+
+
+<h2>Upload and Display Video</h2>
+
+<!-- Display upload form if video is not uploaded -->
+{% if not processed_video_path %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+{% endif %}
+
+<!-- Display processed video if uploaded -->
+{% if processed_video_path %}
+<h3>Processed Video</h3>
+<video width="640" height="480" controls>
+    <source src="{{ processed_video_path }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+{% endif %}
+</body>
+
+
+
+
+{% endblock %}
+
