@@ -31,7 +31,7 @@ def bookrec(request):
     context = {'query': query, 'count': count}
 
     if query:
-        url = ''
+        url = 'http://10.204.218.18:6000'
         data = {'text': query, 'count': count}
         response = requests.post(url, json=data)
         if response.status_code == 200:
