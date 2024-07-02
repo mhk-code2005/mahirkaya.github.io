@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "/home.html"
+  to = "website/templates/home.html"
   status = 200
 [dev]
   command = "pip install -r requirements.txt && python manage.py runserver "
