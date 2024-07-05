@@ -8,6 +8,17 @@
     <title>{% block title %}Django App{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <script type="text/javascript">
+        // Function to reload the page
+        function reloadPage() {
+            window.location.reload();
+        }
+
+        // Set a timer to reload the page every 10 minutes (600,000 milliseconds)
+        setTimeout(reloadPage, 600000);
+    </script>
+
 </head>
 <body>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
