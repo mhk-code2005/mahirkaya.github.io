@@ -39,7 +39,6 @@ def bookrec(request):
         url = 'https://bookrec-server.onrender.com/input'
         data = {'text': query, 'count': count}
         response = requests.post(url, json=data)
-        print(response)
         if response.status_code == 200:
             result = response.json()['result']
             if result[1] == 0:
@@ -59,6 +58,42 @@ def bookrec(request):
             context.update({'error': 'Error fetching data from server'})
 
     return render(request, 'bookrec.html', context)
+
+
+
+
+
+def get_standings_for_league(competition = "PL", url = "http://api.football-data.org/v4/competitions/"):
+    
+    headers = {
+        'X-Auth-Token': '6034433a2a734f89b1c9edda63bdec34'  # Replace 'YOUR_API_KEY' with your actual API key
+    }
+
+    response = requests.get(url + competition + "/standings", headers=headers)
+    if response.status_code != 200:
+        return None
+    else: 
+        return response.json()
+
+def livescores(request):
+    league_standings = {}
+    leagues = {
+        'Premier league': "PL",
+        'Bundesliga' : "BL1",
+        'Serie A' : "SA",
+    }
+
+    for league_name, league_code in leagues.items():
+        data = get_standings_for_league(league_code)
+        if data and 'standings' in data:
+            league_standings[league_name] = data['standings'][0]['table']
+
+    context = {'league_standings': league_standings}
+
+    return render(request, 'livescores.html', context)
+
+
+
 
 
 
