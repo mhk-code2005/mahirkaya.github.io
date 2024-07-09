@@ -72,8 +72,8 @@ def get_standings_for_league(competition = "PL", url = "http://api.football-data
     response = requests.get(url + competition + "/standings", headers=headers)
     if response.status_code != 200:
         return None
-    else: 
-        return response.json()
+     
+    return response.json()
 
 def livescores(request):
     league_standings = {}
